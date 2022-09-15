@@ -1,4 +1,4 @@
-## AStar
+## A*
 ### Dados do problema:
 Suponha que queremos construir um sistema para auxiliar um usuário do metrô de Paris a saber o trajeto mais rápido entre a estação onde ele se encontra e a estação de destino. O usuário tem um painel com o mapa, podendo selecionar a sua estação de destino. O sistema então acende as luzes sobre o mapa mostrando o melhor trajeto a seguir (em termos de quais estações ele vai atravessar e quais as conexões mais rápidas a fazer – se for o caso). Para     facilitar a vida, consideramos apenas 4 linhas do metrô. <br><br>
 Considere que:
