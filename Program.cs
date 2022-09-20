@@ -1,23 +1,18 @@
-namespace AStar
+namespace AStar //faltando botar baldeaçao, testar e refatorar (bonus: interface)
 {
     using System;
     using System.Collections.Generic;
     
-    class Program
+    static class Program
     {
-        static List<(int,string,double)>[] conexoes = new List<(int,string,double)>[14];
+        static List<(int,string,double)>[] connections = new List<(int,string,double)>[14];
+        static double[,] heuristics = new double[14,14];
 
-        static void AddConexao(int origin, int destiny, string color, double weight){
-            conexoes[origin-1].Add((destiny, color, weight));
-            conexoes[destiny-1].Add((origin, color, weight));
-        }
-
-        static void Main(string[] args)
-        {
+        static void CreateGraph(){
             //e1 = estação atual 
             //e2 = estação destino
             //h = distancia[e1][e2]
-            double [,] heuristicas = new double [14,14] {
+            double [,] heuristics = new double [14,14] {
                 {0,10,18.5,24.8,36.4,38.8,35.8,25.4,17.6,9.1,16.7,27.3,27.6,29.8}, //1
                 {10,0,8.5, 14.8, 26.6, 29.1, 26.1, 17.3 ,10, 3.5, 15.5, 20.9, 19.1, 21.8}, //2
                 {18.5,8.5,0,6.3,18.2,20.6,17.6,13.6,9.4,10.3,19.5,19.1,12.1,16.6}, //3
@@ -34,12 +29,117 @@ namespace AStar
                 {29.8,21.8,16.6,15.4,17.9,18.2,15.6,27.6,26.6,21.2,35.5,33.6,5.1,0}//14
             };
 
-            for (int i = 0; i < conexoes.Length; i++)
+            for (int i = 0; i < connections.Length; i++)
             {
-                conexoes[i] = new List<(int,string,double)> ();
+                connections[i] = new List<(int,string,double)> ();
             }
+
+            //Adicionando conexões no Grafo
+            AddConncection(1,2,"azul",10);
+            AddConncection(2,3,"azul",8.5);
+            AddConncection(2,9,"amarelo",10);
+            AddConncection(2,10,"amarelo",3.5);
+            AddConncection(3,4,"azul",6.3);
+            AddConncection(3,9,"vermelho",9.4);
+            AddConncection(3,13,"vermelho",18.7);
+            AddConncection(4,5,"azul",13);
+            AddConncection(4,8,"verde",15.3);
+            AddConncection(4,13,"verde",12.8);
+            AddConncection(5,6,"azul",3);
+            AddConncection(5,7,"amarelo",2.4);
+            AddConncection(5,8,"amarelo",30);
+            AddConncection(8,9,"amarelo",9.6);
+            AddConncection(8,12,"verde",6.4);
+            AddConncection(9,11,"vermelho",12.2);
+            AddConncection(3,14,"verde",5.1);
+        }
+
+        static void AddConncection(int origin, int destiny, string color, double weight){
+            connections[origin-1].Add(((destiny-1), color, weight));
+            connections[destiny-1].Add(((origin-1), color, weight));
+        }
+        
+        static int TreatInput(string input){
+            return (int.Parse(input[1].ToString()) - 1);
+        }
+
+        static List<int> GetStationConnections(int station){
+            List<int> stationConnections = new List<int> ();
+            foreach(var connection in connections[station]){
+                stationConnections.Add(connection.Item1);
+            }
+            return stationConnections;
+        }
+        static string GetColor(int previous,int next){
+            return connections[previous][next].Item2;
+        }
+        /*static int CheckTransfer(previous, current, next){
+            if(connections[previous][current].Item3 == connections[current][next].Item3){
+                return 0
+            }
+            else{
+                return 2
+            }
+        }*/
+        static List<int> AStar(int origin, int destiny){
+            PriorityQueue<int, double> frontier = new PriorityQueue<int, double>();
+    
+            Dictionary<int,int> previous = new Dictionary <int,int>();
+            Dictionary<int,double> costs = new Dictionary <int,double>();
+
+            //Adiciona o no de origem na fronteira e inicializando os dicionarios
+            frontier.Enqueue(origin, 0);
+            previous[origin] = origin;
+            costs[origin] = 0;
+            //string currentLine = GetColor()
+
+            while(frontier.Count > 0){
+                int current = frontier.Dequeue();
+                
+                if(current == destiny){ 
+                    break;
+                }
+                
+                foreach(int next in GetStationConnections(current)){
+                    double nextCost = costs[current]; //ADICIONAR BALDEAMENTO FUTURAMENTE
+                    if(!costs.ContainsKey(next) || nextCost < costs[next]){
+                        costs[next] = nextCost;
+                        int index = connections[current].FindIndex(t => t.Item1 == next);
+                        double newCost = nextCost + heuristics[current,next] + connections[current][index].Item3;
+                        frontier.Enqueue(next, newCost);
+                        previous[next] = current;
+                    }
+                }
+                
+            }
+
+            //Pega o caminho final a partir dos "pontos pais"
+            List<int> path = new List<int>();
+            int currNode = destiny;
+
+            while(currNode != origin){
+                path.Add(currNode + 1);
+                currNode = previous[currNode];
+            }
+            path.Add(origin + 1);
+            path.Reverse(); //destiny -> origin  ---> origin -> destiny
+
+            return path;
+        }
+        
+        static void Main(string[] args)
+        {
+            CreateGraph();
+            int origin = TreatInput(Console.ReadLine());
+            int destiny = TreatInput(Console.ReadLine());
+            List <int> result = AStar(origin, destiny);
             
-            AddConexao(1, 2, "azul", 10); //E1-E2
+            System.Console.WriteLine(); //so pra separar os inputs da saida
+            System.Console.WriteLine("Entrou na estação");
+            foreach (var item in result)
+            {
+                System.Console.WriteLine("e"+item);
+            }
         }
     }   
 }
