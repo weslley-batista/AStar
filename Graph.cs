@@ -35,9 +35,12 @@ namespace CinAI
 
         //Retorna a cor da linha que conecta duas estações
         public string GetColor(int current,int index){
-                return connections[current][index].Item2;
+            if(index == -1){
+                return "";
             }
-                    
+            return connections[current][index].Item2;
+        }
+                
         //Retorna o index do next na lista de adjacência do current
         public int GetNextIndex(int current, int next){
             return connections[current].FindIndex(t => t.Item1 == next);

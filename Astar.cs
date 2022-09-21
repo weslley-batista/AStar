@@ -22,17 +22,15 @@ namespace CinAI
             while(frontier.Count > 0){
                 frontier = PrintPQueue(frontier);
                 int current = frontier.Dequeue(); //Pega o nó com maior prioridade
-
-                //Verifica a cor da linha atual
-                if(current != origin){
-                    currentLine = graph.GetColor(current, index);
-                }
-
+                
                 //Se o nó é o destino, quebra o laço
                 if(current == destiny){ 
                     break;
                 }
-                
+
+                int prevIndex = graph.GetNextIndex(current, previous[current]);
+                currentLine = graph.GetColor(current, prevIndex);
+
                 //Para cada nó da fronteira ...
                 foreach(int next in graph.GetStationConnections(current)){
                     double nextCost = costs[current];
@@ -43,9 +41,9 @@ namespace CinAI
                         costs[next] = nextCost;
                         int index = graph.GetNextIndex(current, next);
                         double newCost = nextCost + graph.Heuristic(current, next, index, destiny, currentLine);
-                        Console.WriteLine((current + 1).ToString() + " "+ (next+1).ToString() + " " + graph.CheckTransfer(current, index, currentLine) + " " + currentLine);
                         frontier.Enqueue(next, newCost);
                         previous[next] = current;
+        
                     }
                 }
             }
