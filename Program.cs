@@ -70,20 +70,28 @@ namespace AStar //faltando botar baldeaçao, testar e refatorar (bonus: interfac
             }
             return stationConnections;
         }
+
         static string GetColor(int previous,int next){
             return connections[previous][next].Item2;
         }
-        /*static int CheckTransfer(previous, current, next){
-            if(connections[previous][current].Item3 == connections[current][next].Item3){
-                return 0
+
+        static int CheckTransfer(int current, int next, string currentLine){
+            if (currentLine == ""){
+                return 0;
             }
             else{
-                return 2
+                if(connections[current][next].Item2 == currentLine){
+                return 0;
+                }
+                else{
+                    return 2;
+                }
             }
-        }*/
+        }
+
         static List<int> AStar(int origin, int destiny){
+            
             PriorityQueue<int, double> frontier = new PriorityQueue<int, double>();
-    
             Dictionary<int,int> previous = new Dictionary <int,int>();
             Dictionary<int,double> costs = new Dictionary <int,double>();
 
@@ -91,7 +99,7 @@ namespace AStar //faltando botar baldeaçao, testar e refatorar (bonus: interfac
             frontier.Enqueue(origin, 0);
             previous[origin] = origin;
             costs[origin] = 0;
-            //string currentLine = GetColor()
+            string currentLine = "";
 
             while(frontier.Count > 0){
                 int current = frontier.Dequeue();
@@ -105,9 +113,10 @@ namespace AStar //faltando botar baldeaçao, testar e refatorar (bonus: interfac
                     if(!costs.ContainsKey(next) || nextCost < costs[next]){
                         costs[next] = nextCost;
                         int index = connections[current].FindIndex(t => t.Item1 == next);
-                        double newCost = nextCost + heuristics[current,next] + connections[current][index].Item3;
+                        double newCost = nextCost + heuristics[next,destiny] + connections[current][index].Item3 + CheckTransfer(current, next,currentLine, allowChecking);
                         frontier.Enqueue(next, newCost);
                         previous[next] = current;
+                        currentLine = GetColor(current,next)
                     }
                 }
                 
@@ -127,8 +136,7 @@ namespace AStar //faltando botar baldeaçao, testar e refatorar (bonus: interfac
             return path;
         }
         
-        static void Main(string[] args)
-        {
+        static void Main(string[] args){
             CreateGraph();
             int origin = TreatInput(Console.ReadLine());
             int destiny = TreatInput(Console.ReadLine());
