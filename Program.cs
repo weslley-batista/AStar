@@ -60,7 +60,12 @@ namespace AStar //faltando botar baldeaçao, testar e refatorar (bonus: interfac
         }
         
         static int TreatInput(string input){
-            return (int.Parse(input[1].ToString()) - 1);
+            if(input.Length == 2){
+                return (int.Parse(input[1].ToString()) - 1);
+            } else {
+                string stationTxt = input[1].ToString() + input[2].ToString();
+                return (int.Parse(stationTxt) - 1);
+            }
         }
 
         static List<int> GetStationConnections(int station){
@@ -109,14 +114,15 @@ namespace AStar //faltando botar baldeaçao, testar e refatorar (bonus: interfac
                 }
                 
                 foreach(int next in GetStationConnections(current)){
-                    double nextCost = costs[current]; //ADICIONAR BALDEAMENTO FUTURAMENTE
+                    double nextCost = costs[current];
                     if(!costs.ContainsKey(next) || nextCost < costs[next]){
                         costs[next] = nextCost;
                         int index = connections[current].FindIndex(t => t.Item1 == next);
-                        double newCost = nextCost + heuristics[next,destiny] + connections[current][index].Item3 + CheckTransfer(current, next,currentLine, allowChecking);
+                        double newCost = nextCost + heuristics[next,destiny] + connections[current][index].Item3 + CheckTransfer(current, index,currentLine);
                         frontier.Enqueue(next, newCost);
                         previous[next] = current;
-                        currentLine = GetColor(current,next)
+                        currentLine = GetColor(current, index);
+                        
                     }
                 }
                 
