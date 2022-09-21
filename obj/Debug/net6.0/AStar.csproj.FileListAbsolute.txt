@@ -1,0 +1,15 @@
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\bin\Debug\net6.0\AStar.exe
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\bin\Debug\net6.0\AStar.deps.json
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\bin\Debug\net6.0\AStar.runtimeconfig.json
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\bin\Debug\net6.0\AStar.dll
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\bin\Debug\net6.0\AStar.pdb
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\AStar.csproj.AssemblyReference.cache
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\AStar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\AStar.AssemblyInfoInputs.cache
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\AStar.AssemblyInfo.cs
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\AStar.csproj.CoreCompileInputs.cache
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\AStar.dll
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\refint\AStar.dll
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\AStar.pdb
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\AStar.genruntimeconfig.cache
+C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\ref\AStar.dll
