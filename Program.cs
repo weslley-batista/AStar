@@ -6,11 +6,21 @@ namespace CinAI
     static class Program
     {
        //Função para obter o input no formato correto
-        static int GetInput(){
+        static int GetOrigin(){
             bool inputChecker = false;
             string input = "";
             while (!inputChecker){
                 System.Console.Write("Insira a estação de origem: ");
+                input = Console.ReadLine();
+                inputChecker = CheckInput(input);
+            }
+            return TreatInput(input);
+        }
+        static int GetDestiny(){
+            bool inputChecker = false;
+            string input = "";
+            while (!inputChecker){
+                System.Console.Write("Insira a estação de destino: ");
                 input = Console.ReadLine();
                 inputChecker = CheckInput(input);
             }
@@ -57,25 +67,13 @@ namespace CinAI
             var heuristics = graph.SetHeurisitcs();
 
             //Recebe o input da estação de origem e da estação de destino
-            int origin = GetInput();
-            int destiny = GetInput();
+            int origin = GetOrigin();
+            int destiny = GetDestiny();
+
+            System.Console.WriteLine(); //separa os inputs da saida
 
             //Executa o A* para encontrar o melhor caminho entre as estações
-            List <int> result = Astar.FindPath(graph,origin,destiny,heuristics,connections);
-            
-            //Printa a lista de estações que será seguida
-            System.Console.WriteLine(); //separa os inputs da saida
-            System.Console.WriteLine("Entrou na estação");
-
-            string finalTxt =  "Caminho: ";
-            foreach (int item in result)
-            {
-                finalTxt += "e" + item;
-                if(item != destiny+1){
-                    finalTxt += " -> ";
-                }
-            }
-            System.Console.WriteLine(finalTxt);
+            Astar.FindPath(graph, origin, destiny, heuristics, connections);
         }
     }   
 }

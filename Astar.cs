@@ -4,7 +4,7 @@ namespace CinAI
     public static class Astar{
 
         //Função que retorna o menor caminho usando o A*
-        public static List<int> FindPath(Graph graph,int origin, int destiny,
+        public static void FindPath(Graph graph,int origin, int destiny,
                                          double[,] heuristics,
                                          List<(int,string,double)>[] connections){
             
@@ -52,17 +52,20 @@ namespace CinAI
             List<int> path = new List<int>();
             int currNode = destiny;
             double totalCost = 0;
-
+            currentLine = "";
             while(currNode != origin){
                 path.Add(currNode + 1);
                 int index = graph.GetNextIndex(currNode, previous[currNode]);
-                totalCost += graph.GetWeight(currNode, index);
+                totalCost += graph.GetWeight(currNode, index) + graph.CheckTransfer(currNode, index, currentLine);
+                currentLine = graph.GetColor(currNode, index);
                 currNode = previous[currNode];
             }
             path.Add(origin + 1);
             path.Reverse(); //destiny -> origin  ---> origin -> destiny
-            Console.WriteLine(totalCost);
-            return path;
+            
+            PrintPath(path, destiny);
+            System.Console.WriteLine();
+            PrintCost(totalCost);
         }
 
         //Função utilitária para printar a fronteira. 
@@ -84,6 +87,39 @@ namespace CinAI
             //Printa a fronteira e retorna o backup
             Console.WriteLine("Fronteira:" + result);
             return bkp;
-        }   
+        }
+        
+        private static void PrintPath(List<int> path, int destiny){
+            Console.WriteLine();
+
+            string finalTxt =  "Caminho: ";
+            foreach (int item in path)
+            {
+                finalTxt += "e" + item;
+                if(item != destiny+1){
+                    finalTxt += " -> ";
+                }
+            }
+            System.Console.WriteLine(finalTxt);
+        }
+
+        private static void PrintCost(double cost){
+            (double,double) minSec = GetTime(cost);
+            if (minSec.Item2 == 0) {
+                Console.WriteLine("Tempo Estimado: " + minSec.Item1 + " minutos");
+            } else{
+                Console.WriteLine("Tempo Estimado: " + minSec.Item1 + " minutos e " + minSec.Item2 + " segundo(s)");
+            }
+            
+        }
+
+        //Retorna o tempo em (minutos,segundos)
+        private static (double,double) GetTime(double distance){
+            //Metro se move a 30km/h 
+            double time = 2 * distance;
+            double minutes = Math.Truncate(time);
+            double seconds = Math.Round(time % 1);
+            return (minutes,seconds);
+        }
     }
 }
