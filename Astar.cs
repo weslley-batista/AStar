@@ -118,7 +118,7 @@ namespace CinAI
             //Metro se move a 30km/h 
             double time = 2 * distance;
             double minutes = Math.Truncate(time);
-            double seconds = Math.Round(time % 1);
+            double seconds = (time % 1) * 60;
             return (minutes,seconds);
         }
     }
