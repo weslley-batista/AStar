@@ -15,3 +15,10 @@ Considere que:
 
 - Mapa do metrô de Paris. <br><br>
 ![image](https://user-images.githubusercontent.com/55666691/190300003-d1b93a89-5d2c-4d7c-b4a6-0393b5a9ccb8.png)
+
+## Como executar
+Para executar o programa, é necessário possuir o .NET Framework 6.0, que pode ser adquirido em https://dotnet.microsoft.com/en-us/download
+
+Após a instalação do framework, basta executar o comando dotnet run na mesma pasta do arquivo AStar.csproj
+
+O programa aceita como inputs estações na forma 'ex' onde x é um número entre 1 e 14
