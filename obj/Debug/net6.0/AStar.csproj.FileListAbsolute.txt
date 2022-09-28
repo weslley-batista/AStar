@@ -13,3 +13,18 @@ C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\refi
 C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\AStar.pdb
 C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\AStar.genruntimeconfig.cache
 C:\Users\amadeo neto\Documents\_UFPE\4º Período\SI\AStar\obj\Debug\net6.0\ref\AStar.dll
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\obj\Debug\net6.0\AStar.csproj.AssemblyReference.cache
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\obj\Debug\net6.0\AStar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\obj\Debug\net6.0\AStar.AssemblyInfoInputs.cache
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\obj\Debug\net6.0\AStar.AssemblyInfo.cs
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\obj\Debug\net6.0\AStar.csproj.CoreCompileInputs.cache
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\obj\Debug\net6.0\AStar.dll
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\obj\Debug\net6.0\refint\AStar.dll
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\obj\Debug\net6.0\AStar.pdb
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\bin\Debug\net6.0\AStar.exe
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\bin\Debug\net6.0\AStar.deps.json
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\bin\Debug\net6.0\AStar.runtimeconfig.json
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\bin\Debug\net6.0\AStar.dll
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\bin\Debug\net6.0\AStar.pdb
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\obj\Debug\net6.0\AStar.genruntimeconfig.cache
+C:\Users\amade\OneDrive\Documentos\_UFPE\4º Período\SI\Astar\obj\Debug\net6.0\ref\AStar.dll

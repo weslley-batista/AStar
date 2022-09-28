@@ -8,26 +8,24 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\amadeo neto\\.nuget\\packages\\": {}
+    "C:\\Users\\amade\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amadeo neto\\Documents\\_UFPE\\4º Período\\SI\\AStar\\AStar.csproj",
+      "projectUniqueName": "C:\\Users\\amade\\OneDrive\\Documentos\\_UFPE\\4º Período\\SI\\Astar\\AStar.csproj",
       "projectName": "AStar",
-      "projectPath": "C:\\Users\\amadeo neto\\Documents\\_UFPE\\4º Período\\SI\\AStar\\AStar.csproj",
-      "packagesPath": "C:\\Users\\amadeo neto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amadeo neto\\Documents\\_UFPE\\4º Período\\SI\\AStar\\obj\\",
+      "projectPath": "C:\\Users\\amade\\OneDrive\\Documentos\\_UFPE\\4º Período\\SI\\Astar\\AStar.csproj",
+      "packagesPath": "C:\\Users\\amade\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\amade\\OneDrive\\Documentos\\_UFPE\\4º Período\\SI\\Astar\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\amadeo neto\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\amade\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
