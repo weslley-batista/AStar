@@ -108,7 +108,7 @@ namespace CinAI
             if (minSec.Item2 == 0) {
                 Console.WriteLine("Tempo Estimado: " + minSec.Item1 + " minutos");
             } else{
-                Console.WriteLine("Tempo Estimado: " + minSec.Item1 + " minutos e " + minSec.Item2 + " segundo(s)");
+                Console.WriteLine("Tempo Estimado: " + minSec.Item1 + " minutos e " + minSec.Item2 + " segundos");
             }
             
         }
@@ -118,7 +118,7 @@ namespace CinAI
             //Metro se move a 30km/h 
             double time = 2 * distance;
             double minutes = Math.Truncate(time);
-            double seconds = (time % 1) * 60;
+            double seconds = Math.round((time - minutes) * 60);
             return (minutes,seconds);
         }
     }
