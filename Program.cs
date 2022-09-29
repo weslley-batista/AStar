@@ -30,7 +30,7 @@ namespace CinAI
         //Função para realizar o tratamento do input
         static bool CheckInput(string input){
             if ((input[0] == 'E' || input[0] == 'e') && input.Length > 1){
-                if (input[1] < '0' || input[1] > '9' || input.Length > 3){
+                if (input[1] < '1' || input[1] > '9' || input.Length > 3){
                         Console.WriteLine("Estação Inexistente. As estções são numeradas de 1 a 14");
                         return false;
                 } else if (input.Length == 3) {
